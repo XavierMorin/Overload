@@ -16,12 +16,12 @@ public class GameEnd : MonoBehaviour
         {
             onClickBtnReStart();
         });
-        int[] data = {1,2,3,4,5,6,7,8,9,10};
-        setScoreList(data);
     }
 
-    void setScoreList(int[] scoreDatas){
-        for(int i = 1;i<=scoreDatas.Length; i++){
+    void setScoreList(int[] scoreDatas)
+    {
+        for (int i = 1; i <= scoreDatas.Length; i++)
+        {
             txtScore[i].text = scoreDatas[i].ToString();
         }
     }

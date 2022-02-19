@@ -12,6 +12,7 @@ public class StartGame : MonoBehaviour
         btnStart.onClick.AddListener(()=>{
             onClickBtnStart();
         });
+        //PlayerPrefs.SetInt("score",1);
     }
 
     void onClickBtnStart()

@@ -7,13 +7,12 @@ public class MainGame : MonoBehaviour
 {
     public Button btnGoOn;
     public Button btnPause;
-    public Text txtScore;
+    public static Text txtScore;
     public GameObject pausePanel;
     // Start is called before the first frame update
     void Start()
     {
         pausePanel.SetActive(false);
-        refreshScore(0);
         btnGoOn.onClick.AddListener(()=>{
             onClickBtnGoOn();
         });
@@ -22,8 +21,9 @@ public class MainGame : MonoBehaviour
         });
     }
 
-    void refreshScore(int score)
+    public static void refreshScore()
     {
+        int score = PlayerPrefs.GetInt("score");
         txtScore.text = score.ToString();
     }
 
