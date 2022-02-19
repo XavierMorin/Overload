@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum POS { UP,DOWN,LEFT,RIGHT}
-public enum streetType { Intersection,Horizontal,Vertical}
+public enum streetType { Intersection,Horizontal,Vertical, RightUp, LeftUp}
 public class Street : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -22,11 +22,12 @@ public class Street : MonoBehaviour
     {
       
     }
-    public void AddStreet(Street street, POS position)
+    public bool AddStreet(Street street, POS position)
     {
+        if( Streets[(int)position] == null) return false;
         Streets[(int)position] = street;
         Connect(position);
-
+        return true;
     }
     private void Connect(POS position)
     {
@@ -99,6 +100,6 @@ public class Street : MonoBehaviour
         Entries[(int)POS.RIGHT].previousWaypoint = null;
     }
 
-
+    
 
 }

@@ -313,6 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6259620917725905490}
   - component: {fileID: 101254693815428069}
+  - component: {fileID: 7439418734389894699}
   m_Layer: 0
   m_Name: HorizontalStreet
   m_TagString: Untagged
@@ -365,6 +366,32 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!61 &7439418734389894699
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8625777982318682746}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.5507526, y: -0.37311316}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 17.999985, y: 9.954724}
+  m_EdgeRadius: 0
 --- !u!1 &8811167546175123137
 GameObject:
   m_ObjectHideFlags: 0
