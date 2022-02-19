@@ -28,6 +28,11 @@ public class Street : MonoBehaviour
         Connect(position);
 
     }
+    public void RemoveStreet(Street street,POS position)
+    {
+        Disconnect(position);
+        Streets[(int)position] = null;
+    }
     private void Connect(POS position)
     {
         switch (position)
