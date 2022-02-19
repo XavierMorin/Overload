@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - RVOSim
+  - Street
   layers:
   - Default
   - TransparentFX
