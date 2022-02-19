@@ -29,13 +29,14 @@ public class StreetManager : MonoBehaviour
 
         timer = 0f;
         Street currentStreet = currentStreetGO.GetComponent<Street>();
+        Vector3 position = new Vector3(0, -20, 0);
         for(int i  = 0; i < 10; i++)
         {
-            IntersectionPool.Enqueue(Instantiate(VerticalStreetPrefab));
-            HorizontalStreetPool.Enqueue(Instantiate(VerticalStreetPrefab));
-            VerticalStreetPool.Enqueue(Instantiate(VerticalStreetPrefab));
-            RightUpStreetPool .Enqueue(Instantiate(VerticalStreetPrefab));
-            LeftUpStreetPool.Enqueue(Instantiate(VerticalStreetPrefab));
+            IntersectionPool.Enqueue(Instantiate(IntersectionPrefab, position,Quaternion.identity));
+            HorizontalStreetPool.Enqueue(Instantiate(HorizontalStreetPrefab,position,Quaternion.identity));
+            VerticalStreetPool.Enqueue(Instantiate(VerticalStreetPrefab,position,Quaternion.identity));
+            RightUpStreetPool .Enqueue(Instantiate(RightUpPrefab,position,Quaternion.identity));
+            LeftUpStreetPool.Enqueue(Instantiate(LeftUpPrefab,position,Quaternion.identity));
         }
     }
 
@@ -136,11 +137,12 @@ public class StreetManager : MonoBehaviour
 
      public void AddStreet()
     {
-        if (playerOnStreet == null)
+        if (currentStreetGO == null)
         {
             return;
         }
-        switch(playerOnStreet.type)
+        Street currentStreet = currentStreetGO.GetComponent<Street>();
+        switch(currentStreet.type)
         {
             case streetType.Intersection:
                 AddVerticalStreetOnRun(POS.UP);
@@ -223,6 +225,7 @@ public class StreetManager : MonoBehaviour
             return;
 
         GameObject newStreetGO = HorizontalStreetPool.Dequeue();
+        newStreetGO.SetActive(true);
         Street newStreet = newStreetGO.GetComponent<Street>();
 
         bool isAdd = currentStreet.AddStreet(newStreet, pos);
@@ -249,6 +252,7 @@ public class StreetManager : MonoBehaviour
 
 
         GameObject newStreetGO = IntersectionPool.Dequeue();
+        newStreetGO.SetActive(true);
         Street newStreet = newStreetGO.GetComponent<Street>();
 
         bool isAdd = currentStreet.AddStreet(newStreet, pos);
@@ -273,6 +277,7 @@ public class StreetManager : MonoBehaviour
     {
         Street currentStreet = currentStreetGO.GetComponent<Street>();
         GameObject newStreetGO = RightUpStreetPool.Dequeue();
+        newStreetGO.SetActive(true);
         Street newStreet = newStreetGO.GetComponent<Street>();
 
         bool isAdd = currentStreet.AddStreet(newStreet, POS.RIGHT);
@@ -285,6 +290,7 @@ public class StreetManager : MonoBehaviour
     {
         Street currentStreet = currentStreetGO.GetComponent<Street>();
         GameObject newStreetGO = LeftUpStreetPool.Dequeue();
+        newStreetGO.SetActive(true);
         Street newStreet = newStreetGO.GetComponent<Street>();
 
         bool isAdd = currentStreet.AddStreet(newStreet, POS.LEFT);
@@ -298,8 +304,9 @@ public class StreetManager : MonoBehaviour
         currentStreetGO = street;
     }
 
-    public void PushStreetToPool( GameObject street)
+    public void PushStreetToPool(GameObject street)
     {
+        street.SetActive(false);
         streetType type = street.GetComponent<Street>().type;
         switch(type){
             case streetType.Horizontal:
