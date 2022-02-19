@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 632253338821509104}
   - component: {fileID: 7795970901741345904}
   m_Layer: 0
-  m_Name: Button
+  m_Name: btnStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,6 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2997970299948675299}
+  - component: {fileID: 8449105943391706480}
   m_Layer: 0
   m_Name: StartGameUI
   m_TagString: Untagged
@@ -307,6 +308,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8449105943391706480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7112156801970035302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637cd86d3fc33eb479d36a6be89f92c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainGameUI: {fileID: 7910945543063176840, guid: f7d2cdfad776a2e46b793523be43967a, type: 3}
+  btnStart: {fileID: 7795970901741345904}
 --- !u!1 &7994358699000677171
 GameObject:
   m_ObjectHideFlags: 0

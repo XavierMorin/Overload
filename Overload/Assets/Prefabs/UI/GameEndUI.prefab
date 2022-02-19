@@ -1671,6 +1671,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad51cfdcfcad5b441b4a068f4f7d17eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objStartGame: {fileID: 7112156801970035302, guid: 5d4fa216d39fe7b4ea55dabf7f70fa68, type: 3}
+  btnReStart: {fileID: 8288993164190395285}
+  txtScore:
+  - {fileID: 4336292912402468288}
+  - {fileID: 3035135363339329839}
+  - {fileID: 2799218588699759752}
+  - {fileID: 3064143136534042357}
+  - {fileID: 8223266199683382514}
+  - {fileID: 2293868110808332079}
+  - {fileID: 8481121403421748196}
+  - {fileID: 6055120457860364986}
+  - {fileID: 2204763147296767871}
+  - {fileID: 555107569446243124}
 --- !u!1 &7582929180162712845
 GameObject:
   m_ObjectHideFlags: 0
