@@ -26,27 +26,7 @@ public class StreetManagerEditor : Editor
             script.AddIntersectionStreet(POS.UP);
 
         }
-        if (GUILayout.Button("Add Intersection LEFT"))
-        {
-            script.AddIntersectionStreet(POS.LEFT);
-        }
-        if (GUILayout.Button("Add Intersection RIGHT"))
-        {
-            script.AddIntersectionStreet(POS.RIGHT);
-        }
-
-        if (GUILayout.Button("Add Horizontal LEFT"))
-        {
-
-            script.AddHorizontalStreet(POS.LEFT);
-
-        }
-        if (GUILayout.Button("Add Horizontal RIGHT"))
-        {
-
-            script.AddHorizontalStreet(POS.RIGHT);
-
-        }
+      
 
         
         base.OnInspectorGUI();

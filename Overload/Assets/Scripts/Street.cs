@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum POS { UP,DOWN,LEFT,RIGHT}
-public enum streetType { Intersection,Horizontal,Vertical, RightUp, LeftUp}
+public enum POS { UP,DOWN}
+public enum streetType { Intersection,Vertical}
 public class Street : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -15,16 +15,33 @@ public class Street : MonoBehaviour
     
     public Waypoint[] Exits = new Waypoint[4];
 
-    public Street[] Streets = new Street[4];
+    public Street[] Streets = new Street[2];
+
+    float timer = 0;
 
 
     public void Update()
     {
-      
+        timer += Time.deltaTime;
+        if(timer > 2)
+        {
+            timer = 0;
+            SpamScooter();
+        }
+    }
+    private void SpamScooter()
+    {
+        foreach(Waypoint entry in Entries)
+        {
+            if (entry == null)
+                continue;
+            if(entry.previousWaypoint == null && Scooter.nbScooter<20)
+               ScooterFactory.createScooter(entry);  
+        }
     }
     public bool AddStreet(Street street, POS position)
     {
-        if( Streets[(int)position] == null) return false;
+        if( Streets[(int)position] != null) return false;
         Streets[(int)position] = street;
         Connect(position);
         return true;
@@ -40,8 +57,7 @@ public class Street : MonoBehaviour
         {
             case POS.UP: ConnectUp();break;
             case POS.DOWN: ConnectDown(); break;
-            case POS.LEFT: ConnectLeft(); break;
-            case POS.RIGHT: ConnectRight(); break;
+          
         }
     }
     public void Disconnect(POS position)
@@ -50,60 +66,54 @@ public class Street : MonoBehaviour
         {
             case POS.UP: DisconnectUp(); break;
             case POS.DOWN: DisconnectDown(); break;
-            case POS.LEFT: DisconnectLeft(); break;
-            case POS.RIGHT: DisconnectRight(); break;
+     
         }
     }
-
-
-
-
-
-
 
 
     private void ConnectUp()
     {
         Exits[(int)POS.UP].nextWaypoint = Streets[(int)POS.UP].Entries[(int)POS.DOWN];
         Entries[(int)POS.UP].previousWaypoint = Streets[(int)POS.UP].Exits[(int)POS.DOWN];
+
+        Streets[(int)POS.UP].Entries[(int)POS.DOWN].previousWaypoint = Exits[(int)POS.UP];
+        Streets[(int)POS.UP].Exits[(int)POS.DOWN].nextWaypoint = Entries[(int)POS.UP];
+
     }
     private void ConnectDown()
     {
         Exits[(int)POS.DOWN].nextWaypoint = Streets[(int)POS.DOWN].Entries[(int)POS.UP];
         Entries[(int)POS.DOWN].previousWaypoint = Streets[(int)POS.DOWN].Exits[(int)POS.UP];
+
+        Streets[(int)POS.DOWN].Entries[(int)POS.UP].previousWaypoint = Exits[(int)POS.DOWN];
+        Streets[(int)POS.DOWN].Exits[(int)POS.UP].nextWaypoint = Entries[(int)POS.DOWN];
     }
-    private void ConnectLeft()
-    {
-        Exits[(int)POS.LEFT].nextWaypoint = Streets[(int)POS.LEFT].Entries[(int)POS.RIGHT];
-        Entries[(int)POS.LEFT].previousWaypoint = Streets[(int)POS.LEFT].Exits[(int)POS.RIGHT];
-    }
-    private void ConnectRight()
-    {
-        Exits[(int)POS.RIGHT].nextWaypoint = Streets[(int)POS.RIGHT].Entries[(int)POS.LEFT];
-        Entries[(int)POS.RIGHT].previousWaypoint = Streets[(int)POS.RIGHT].Exits[(int)POS.LEFT];
-    }
+   
 
 
     private void DisconnectUp()
     {
         Exits[(int)POS.UP].nextWaypoint = null;
         Entries[(int)POS.UP].previousWaypoint = null;
+
+        if (Streets[(int)POS.UP] != null)
+        {
+            Streets[(int)POS.UP].Entries[(int)POS.DOWN].previousWaypoint = null;
+            Streets[(int)POS.UP].Exits[(int)POS.DOWN].nextWaypoint = null;
+        }
     }
     private void DisconnectDown()
     {
         Exits[(int)POS.DOWN].nextWaypoint = null;
         Entries[(int)POS.DOWN].previousWaypoint = null;
+
+        if (Streets[(int)POS.DOWN] != null)
+        {
+            Streets[(int)POS.DOWN].Entries[(int)POS.UP].previousWaypoint = null;
+            Streets[(int)POS.DOWN].Exits[(int)POS.UP].nextWaypoint = null;
+        }
     }
-    private void DisconnectLeft()
-    {
-        Exits[(int)POS.LEFT].nextWaypoint = null;
-        Entries[(int)POS.LEFT].previousWaypoint = null;
-    }
-    private void DisconnectRight()
-    {
-        Exits[(int)POS.RIGHT].nextWaypoint = null;
-        Entries[(int)POS.RIGHT].previousWaypoint = null;
-    }
+  
 
     
 

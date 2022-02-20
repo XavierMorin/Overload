@@ -6,13 +6,14 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Waypoint previousWaypoint;
-    public Waypoint nextWaypoint;
+    public Waypoint previousWaypoint = null;
+    public Waypoint nextWaypoint =null;
 
 
     [Range(0f, 5f)]
     public float width = 1f;
     public List<Waypoint> branches;
+
    
 
 
@@ -30,6 +31,11 @@ public class Waypoint : MonoBehaviour
         return transform;
     }
 
+    public GameObject GetGO()
+    {
+        return this.gameObject;
+    }
+
     public Waypoint GetNextWaypoint()
     {
         if (branches != null)
@@ -43,6 +49,8 @@ public class Waypoint : MonoBehaviour
         else
             return nextWaypoint;
     }
+
+  
 
 
 

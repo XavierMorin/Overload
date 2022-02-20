@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
@@ -8,7 +6,6 @@ public class Scanner : MonoBehaviour
     // Start is called before the first frame update
     public float interval = 0.2f;
     private float timer = 0;
-    private AstarData AA;
     private GridGraph gg;
 
     // Update is called once per frame
@@ -25,7 +22,15 @@ public class Scanner : MonoBehaviour
             AstarPath.active.Scan();
             timer = 0;
         }
-        gg.center = new Vector3(transform.position.x,transform.position.y, transform.position.z);
+       
         
+    }
+
+    public void moveUP(float y)
+    {
+        gg.center = gg.center + new Vector3(0, y,0);
+        Quaternion q = Quaternion.Euler(gg.rotation.x, gg.rotation.y, gg.rotation.z);
+        gg.RelocateNodes(gg.center, q,gg.nodeSize,gg.aspectRatio,gg.isometricAngle);
+
     }
 }
