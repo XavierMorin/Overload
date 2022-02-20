@@ -16,4 +16,10 @@ public class CameraFollow : MonoBehaviour
         newPosition.y = newPosition.y + y;
         Camera.main.transform.position = newPosition;
     }
+
+    public static void Adjust(float y)
+    {
+        Transform transform = Camera.main.transform;
+        transform.position = new Vector3(transform.position.x, y, transform.position.z);
+    }
 }

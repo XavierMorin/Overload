@@ -9,6 +9,7 @@ public class StreetFactory : MonoBehaviour
 
     public GameObject verticalPrefab;
     private static GameObject verticalPrefabStatic;
+
     void Start()
     {
         intersectionPrefabStatic = intersectionPrefab;
@@ -32,6 +33,5 @@ public class StreetFactory : MonoBehaviour
         return street;
 
     }
-
     
 }

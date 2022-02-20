@@ -7,8 +7,10 @@ public class MainGame : MonoBehaviour
 {
     public Button btnGoOn;
     public Button btnPause;
-    public static Text txtScore;
+    public Text txtScore;
+    public Text txtNumOfItems;
     public GameObject pausePanel;
+    public MainCharacter mainCharacter;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +23,19 @@ public class MainGame : MonoBehaviour
         });
     }
 
-    public static void refreshScore()
+    void Update()
     {
-        int score = PlayerPrefs.GetInt("score");
-        txtScore.text = score.ToString();
+        refreshScore();
+        UpdateAmountOfLuagagge();
+    }
+    public void refreshScore()
+    {
+        txtScore.text = mainCharacter.score.ToString();
+    }
+
+    public void UpdateAmountOfLuagagge()
+    {
+        txtNumOfItems.text = "Num of Items: " + mainCharacter.amountOfLuaggages.ToString();
     }
 
     void onClickBtnGoOn()
@@ -37,11 +48,5 @@ public class MainGame : MonoBehaviour
     {
         Time.timeScale = 0;
         pausePanel.SetActive(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

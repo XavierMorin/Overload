@@ -149,6 +149,7 @@ public class StreetManager : MonoBehaviour
             newStreetGO.transform.position = currentStreetGO.transform.position + new Vector3(0, -verticalOffset, 0);
 
         newStreetGO.SetActive(true);
+        newStreetGO.GetComponent<VerticalStreet>().ActiveLuagage();
         existingStreets.Add(newStreetGO);
         
     }

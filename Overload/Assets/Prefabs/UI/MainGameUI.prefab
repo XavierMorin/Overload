@@ -107,8 +107,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1040916523925366750}
+  m_Children: []
   m_Father: {fileID: 7819048377916334316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -312,7 +311,7 @@ RectTransform:
   m_Children:
   - {fileID: 2658342682820561596}
   m_Father: {fileID: 7819048377916334316}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -510,6 +509,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2027436301593534913}
+  - {fileID: 1040916523925366750}
   - {fileID: 5762911007619994267}
   m_Father: {fileID: 942307214338619232}
   m_RootOrder: 0
@@ -704,7 +704,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btnGoOn: {fileID: 8971608121760913599}
   btnPause: {fileID: 758947309402298700}
-  txtScore: {fileID: 4405070551136513342}
   pausePanel: {fileID: 7992433703780031486}
 --- !u!1 &7992433703780031486
 GameObject:
@@ -807,16 +806,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7995564638116139741}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2027436301593534913}
-  m_RootOrder: 0
+  m_Father: {fileID: 7819048377916334316}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232.64317, y: -0.000012875}
+  m_AnchoredPosition: {x: -675.485, y: 481.73828}
   m_SizeDelta: {x: 355.2863, y: 51.136}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &21986679072859818

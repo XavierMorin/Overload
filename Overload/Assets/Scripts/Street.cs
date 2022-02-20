@@ -17,9 +17,9 @@ public class Street : MonoBehaviour
 
     public Street[] Streets = new Street[2];
 
+    
+
     float timer = 0;
-
-
     public void Update()
     {
         timer += Time.deltaTime;
@@ -113,6 +113,8 @@ public class Street : MonoBehaviour
             Streets[(int)POS.DOWN].Exits[(int)POS.UP].nextWaypoint = null;
         }
     }
+
+    
   
 
     
